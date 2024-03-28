@@ -89,10 +89,10 @@ void execute_instruction(char *opcode, stack_t **stack,
 		{NULL, NULL}
 	};
 	int i;
-
+	
 	if (opcode[0] == '#')
 		return;
-	
+
 	for (i = 0; instructions[i].opcode != NULL; i++)
 	{
 		if (strcmp(instructions[i].opcode, opcode) == 0)

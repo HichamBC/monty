@@ -38,6 +38,9 @@ int main(int argc, char *argv[])
 	while (fgets(buffer, sizeof(buffer), fp) != NULL)
 	{
 		line++;
+		if (buffer[0] == '#')
+			continue;
+
 		s = strtok(buffer, " \t\n");
 		if (s != NULL)
 		{
