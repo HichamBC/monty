@@ -131,3 +131,26 @@ void execute_instruction(char *opcode, stack_t **stack,
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
+
+
+/**
+ * free_stack - Frees all nodes in the stack.
+ * @stack: Double pointer to the top of the stack.
+ *
+ * Return: None.
+ */
+
+void free_stack(stack_t *stack)
+{
+	stack_t *current = stack;
+	stack_t *temp;
+
+	while (current != NULL)
+	{
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+
+	stack = NULL;
+}

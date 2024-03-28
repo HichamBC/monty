@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
 		execute_instruction(s, &stack, line);
 	}
 
+	free_stack(stack);
 	fclose(fp);
 	return (0);
 }
