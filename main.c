@@ -38,14 +38,14 @@ int main(int argc, char *argv[])
 	while (fgets(buffer, sizeof(buffer), fp) != NULL)
 	{
 		line++;
-		if (buffer[0] == '#')
-			continue;
 
 		s = strtok(buffer, " \t\n");
-		if (s != NULL)
+		if (s == NULL || s[0] == '#')
 		{
-			execute_instruction(s, &stack, line);
+			continue;
 		}
+
+		execute_instruction(s, &stack, line);
 	}
 
 	fclose(fp);
