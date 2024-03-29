@@ -19,7 +19,6 @@ void pstr(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 	{
 		if (ptr->n == 0)
 		{
-			putchar('\0');
 			break;
 		}
 
