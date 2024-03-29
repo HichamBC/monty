@@ -121,6 +121,7 @@ void execute_instruction(char *opcode, stack_t **stack,
 		{"div", _div},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 	int i;
