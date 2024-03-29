@@ -39,6 +39,7 @@ typedef struct instruction_s
 
 int is_valid_integer(const char *str);
 int stack_is_empty(stack_t **stack);
+int check_ascii(int c);
 void free_stack(stack_t *stack);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -50,6 +51,7 @@ void _div(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void execute_instruction(char *opcode, stack_t **stack,
