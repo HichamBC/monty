@@ -13,21 +13,14 @@
 void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
-	int count = 0, temp;
+	int temp;
 
-	while (ptr != NULL && count < 2)
-	{
-		count++;
-		ptr = ptr->next;
-	}
-
-	if (count != 2)
+	if (!stack || !*stack || !((*stack)->next))
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	ptr = *stack;
 	ptr = ptr->next;
 
 	temp = (*stack)->n;

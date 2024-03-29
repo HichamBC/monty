@@ -11,25 +11,13 @@
 
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *ptr = *stack;
-	int count = 0;
 
-	while (ptr != NULL && count < 2)
-	{
-		count++;
-		ptr = ptr->next;
-	}
-
-	if (count != 2)
+	if (!stack || !*stack || !((*stack)->next))
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	ptr = *stack;
-	*stack = (*stack)->next;
-
-	(*stack)->n = ptr->n + (*stack)->n;
-	free(ptr);
-	ptr = NULL;
+	(*stack)->next->n = (*stack)->next->n + (*stack)->n;
+	pop(stack, line_number);
 }

@@ -1,21 +1,21 @@
 #include "monty.h"
 
-
+/**
+ * _div - Divides the second top element of the stack by
+ *	the top element of the stack.
+ *
+ * @stack: Double pointer to the top of the stack
+ * @line_number: Line number of the instruction in the file
+ *
+ * Return: None
+ */
 
 void _div(stack_t **stack, unsigned int line_number)
 {
-	stack_t *ptr = *stack;
-	int count = 0;
 
-	while (ptr != NULL && count < 2)
+	if (!stack || !*stack || !((*stack)->next))
 	{
-		count++;
-		ptr = ptr->next;
-	}
-
-	if (count != 2)
-	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,10 +25,7 @@ void _div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	ptr = *stack;
-	*stack = (*stack)->next;
 
-	(*stack)->n = (*stack)->n / ptr->n;
-	free(ptr);
-	ptr = NULL;
+	(*stack)->next->n = (*stack)->next->n / (*stack)->n;
+	pop(stack, line_number);
 }
